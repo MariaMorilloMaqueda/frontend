@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 2: Votación de películas.</title>
+    <script src="form2.js"></script>
+</head>
+<body>
+  <fieldset>
+    <legend>Votación de películas peor calificadas en las listas de IMDB</legend>
+    <form name="formulario" id="formulario" method="get">
+      <input type="radio" name="peliculas" id="peli-1" value="¡Pelea de comida!" required>
+      <label for="peli-1">¡Pelea de comida!</label>
+      <input type="radio" name="peliculas" id="peli-2" value="Kirk Cameron's Saving Christmas">
+      <label for="peli-2">Kirk Cameron's Saving Christmas</label>
+      <input type="radio" name="peliculas" id="peli-3" value="Superbabies: Baby Geniuses 2">
+      <label for="peli-3">Superbabies: Baby Geniuses 2</label>
+      <input type="radio" name="peliculas" id="peli-4" value="Turks in Space">
+      <label for="peli-4">Turks in Space</label>
+      <input type="radio" name="peliculas" id="peli-5" value="Manos: las manos del destino">
+      <label for="peli-5">Manos: las manos del destino</label><br>
+
+      <label for="descripcion">Descripción</label>
+      <textarea name="descripcion" id="descripcion" pattern="^.{5,}$" disabled></textarea><br> <!--Cualquier dígito con una logitud de 5-->
+
+      <label for="calificacion">Calificación</label>
+      <input type="number" name="calificacion" id="calificacion" min="0" max="10" required><br>
+
+      <button id="eliminar">Borrar</button>
+      <button id="enviar" type="submit">Enviar</button>
+    </form>
+  </fieldset> 
+  <div id="resultado">
+  </div>
+</body>
+</html>

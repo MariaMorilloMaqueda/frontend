@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 1: Inscripción en el festival de cine.</title>
+    <script src="form1.js"></script>
+    <style type="text/css">
+        .error {
+            background-color: red;
+        }
+        .correcto {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Inscripción en el festival de cine</legend>
+        <form name="formulario" id="formulario" method="get">
+            <label for="nombre">Nombre y apellido:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre y primer apellido"/><br>
+
+            <label for="codigo">Código de invitación:</label>
+            <input type="text" name="codigo" id="codigo"/><br>
+
+            <label for="contrasenia">Contraseña:</label>
+            <input name="contrasenia" type="text" id="contrasenia"/>
+
+            <label for="repeticion">Repite la contraseña:</label>
+            <input name="repeticion" type="password" id="repeticion"/>
+            <button type="button" id="mostrarRepeticion">Mostrar</button><br>
+
+            <label for="genero">Género favorito:</label>
+            <input list="generos" id="genero" name="genero" placeholder="Selecciona o escribe un género"/>
+            <datalist id="generos">
+                <option value="Acción"></option>
+                <option value="Thriller"></option>
+                <option value="Comedia"></option>
+                <option value="Catástrofe"></option>
+                <option value="Ciencia ficción"></option>
+                <option value="Fantasía"></option>
+                <option value="Documentales"></option>
+                <option value="Aventura"></option>
+                <option value="Superhéroes"></option>
+            </datalist><br>
+
+            <input type="reset" name="reiniciar" id="reiniciar" value="Reiniciar"/>
+            <input type="submit" name="enviar" id="enviar" value="Enviar"/>
+        </form>
+    </fieldset> 
+    <div id="resultado">
+  </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!--María Morillo Maqueda-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tarea 1 DEWC. Segunda parte.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h2>Ejercicio 1</h2>
+    <script>
+        //DECLARACIÓN DE VARIABLES
+        let numerosCorrectos = false; // Se utiliza un booleano para salir del primer bucle.
+        let enteroA;
+        let enteroB;
+
+        // MANEJO DE ERRORES CON BUCLE
+        // El bucle se repite al menos 1 vez o más mientras los valores introducidos sean erróneos.
+        do {
+            //Declaración de variables dentro del bucle.
+            let numeroA = prompt("Introduce el número A:", "");
+            let numeroB = prompt("Introduce el número B:", "");
+
+            /*Para asegurarnos que estamos trabajando con números y no con cadenas
+            convertimos los números introducidos a flotantes con parseFloat.*/
+            enteroA = parseInt(numeroA);
+            enteroB = parseInt(numeroB);
+
+            // ESTRUCTURA CONDICIONAL
+            // Si el usuario no introduce un número el bucle se repite.
+            if (isNaN(enteroA) || isNaN(enteroB)) {
+                numerosCorrectos = false;
+            } else {
+                document.write("El número A es " + enteroA + ".<br>");
+                document.write("El número B es " + enteroB + ".<br><br>");
+                numerosCorrectos = true;
+            }
+        } while (!numerosCorrectos);
+
+        // ESTRUCTURA CONDICIONAL
+        // Si B es mayor o igual que A se produce un intercambio de valores.
+        if (enteroB >= enteroA) {
+            [enteroB, enteroA] = [enteroA, enteroB]; // Desestructurando asignaciones.
+            document.write("Se intercambian los valores de A y B porque B es igual o mayor que A:<br><br>");
+            document.write("El número A es " + enteroA + ".<br>");
+            document.write("El número B es " + enteroB + ".<br>");
+        } else {
+            document.write("No se requiere intercambio de valores porque B es menor que A.<br>");
+        }
+    </script>
+    <h2>Ejercicio 2</h2>
+    <script>
+        // DECLARACIÓN DE VARIABLES
+        let valoresCorrectos = false; // Se utiliza un booleano para salir del primer bucle.
+        let origenNum;
+        let finNum;
+        let incrementoNum;
+
+        // MANEJO DE ERRORES CON BUCLE
+        // El bucle se repite al menos 1 vez o más mientras los valores introducidos sean erróneos.
+        do {
+            // Declaración de variables dentro del bucle
+            let origen = prompt("Introduce un número de 'origen' (positivo):", "");
+            let fin = prompt("Introduce un número de 'fin' mayor que 'origen' (positivo):", "");
+            let incremento = prompt("introduce un incremento (positivo):", "");
+
+            /*Para asegurarnos que estamos trabajando con números y no con cadenas
+            convertimos los números introducidos a flotantes con parseFloat.*/
+            origenNum = parseFloat(origen);
+            finNum = parseFloat(fin);
+            incrementoNum = parseFloat(incremento);
+
+            // ESTRUCTURA CONDICIONAL
+            /*Si el usuario introduce algún número negativo, un valor no numérico
+            o Si el origen es mayor que el fin, se repite el bucle.*/
+            if ((origenNum < 0) || (finNum < 0) || (incrementoNum <= 0)) {
+                valoresCorrectos = false;
+            } else if (isNaN(origenNum) || isNaN(finNum) || isNaN(incrementoNum)) {
+                valoresCorrectos = false;
+            } else if (origenNum > finNum) {
+                valoresCorrectos = false;
+            } else {
+                document.write("El número 'origen' es " + origenNum + "<br>");
+                document.write("El número 'fin' es " + finNum + "<br>");
+                document.write("El incremento es " + incrementoNum + "<br><br>");
+                valoresCorrectos = true;
+            }
+        } while (!valoresCorrectos);
+
+        //INCREMENTO CON BUCLE WHILE
+        document.write("Incremento realizado con while: <br>");
+        document.write("[ ");
+        let j = origenNum; //almacenamos el valor de origenNum en una variable para no preguntar por triplicado.
+        while (j <= finNum) {
+            j += incrementoNum;
+            document.write(j + " ");
+        }
+        document.write("]<br><br>");
+
+        //INCREMENTO CON BUCLE DO-WHILE
+        document.write("Incremento realizado con do-while: <br>");
+        document.write("[ ");
+        let k = origenNum; //almacenamos el valor de origenNum en una variable para no preguntar por triplicado.
+        do {
+            k += incrementoNum;
+            document.write(k + " ");
+        } while (k <= finNum);
+        document.write("]<br><br>");
+
+        //INCREMENTO CON BUCLE FOR
+        document.write("Incremento realizado con for: <br>");
+        document.write("[ ");
+        for (let i = origenNum; i <= finNum; i += incrementoNum) {
+            document.write(i + " ");
+        }
+        document.write("]");
+    </script>
+    <h2>Ejercicio 3</h2>
+    <script>
+        // DECLARACIÓN DE VARIABLES
+        let datosCorrectos = false; // Se utiliza un booleano para salir del primer bucle.
+        let numero1;
+        let numero2;
+        let tipoOperador;
+        let resultado;
+
+        // MANEJO DE ERRORES CON BUCLE
+        // El bucle se repite al menos 1 vez o más mientras los valores introducidos sean erróneos.
+        do {
+            // Declaración de variables dentro del bucle
+            let dato1 = prompt("Introduce el primer número:", "");
+            let dato2 = prompt("Introduce el segundo número:", "");
+
+            tipoOperador = prompt("Introduce el tipo de operador (suma +, resta -, multiplicación * o división /)", "");
+
+            //Convertimos los números introducidos a flotantes con parseFloat.
+            numero1 = parseFloat(dato1);
+            numero2 = parseFloat(dato2);
+
+            // ESTRUCTURA CONDICIONAL
+            /* Si el usuario no introduce un número o si el usuario no introduce
+            ninguno de los signos especificados el bucle se repite.*/
+            if (isNaN(numero1) || isNaN(numero2)) {
+                datosCorrectos = false;
+            } else if (tipoOperador !== "+" && tipoOperador !== "-" && tipoOperador !== "*" && tipoOperador !== "/") {
+                datosCorrectos = false;
+            } else {
+                document.write("El primer número es " + numero1 + ".<br>");
+                document.write("El segundo número es " + numero2 + ".<br>");
+                document.write("El tipo de operador es " + tipoOperador + ".<br><br>");
+                datosCorrectos = true;
+            }
+        } while (!datosCorrectos);
+
+        //ESTRUCTURA CONDICIONAL CON SWITCH
+        /*Dependiendo del operador introducido por el usuario el resultado de la operación
+        sera uno u otro. Según si los números se suman, restan, multiplican o dividen.*/
+        switch (tipoOperador) {
+            case "+": resultado = numero1 + numero2;
+                document.write("El resultado de la suma es " + resultado + ".");
+                break;
+            case "-": resultado = numero1 - numero2;
+                document.write("El resultado de la resta es " + resultado + ".");
+                break;
+            case "*": resultado = numero1 * numero2;
+                document.write("El resultado de la multiplicación es " + resultado + ".");
+                break;
+            case "/": resultado = numero1 / numero2;
+                if (numero2 === 0) {
+                    document.write("No se puede dividir por 0.");
+                } else {
+                    document.write("El resultado de la división es " + resultado + ".");
+                }
+                break;
+            default:
+            document.write("Operador no váido.");
+        }
+    </script>
+</body>
